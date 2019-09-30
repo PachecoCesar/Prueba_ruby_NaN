@@ -1,13 +1,14 @@
 <h2>Show</h2>
 
-<div class="card" style="width: 65rem;">
-<%= image_tag @task.photo %>
-<div class="card-body">
-<h5 class="card-title"> <%= @task.title%></h5>
-<%= link_to "Back",tasks_path, class: 'btn btn-warning' %>
-</div>
-<div class="card-footer">
-<small class="text-muted"><%= time_ago_in_words @task.created_at %></small>
-</div>
+<div class="card" style="width: 100%;">
+  <%= image_tag @task.photo %>
+  <div class="card-body">
+    <h5 class="card-title"> <%= @task.title%></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <%= link_to "Back",tasks_path, class: 'btn btn-warning' %>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted"><%= time_ago_in_words @task.created_at %></small>
+  </div>
 </div>
 <br>

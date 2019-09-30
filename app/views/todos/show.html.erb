@@ -1,7 +1,7 @@
 <h2>Descripción</h2>
 
 <table class="table">
-  <thead>
+  <thead class="thead-dark">
     <tr>
       <th scope="col">Titulo</th>
       <th scope="col">Foto</th>
@@ -12,9 +12,11 @@
     <tr>
       <td><%= @task.title%></td>
       <td><%= image_tag @task.photo, style: 'width: 20%' %></td>
-      <% @todos.each do |todo|%>
-      <td><%= todo.user.email %></td>
-      <% end %>
+      <td><% @todos.each do |todo|%>
+      <li>
+        <%= todo.user.email %>     
+      </li>
+      <% end %></td>
     </tr>
   </tbody>
 </table>

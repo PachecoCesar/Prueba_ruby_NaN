@@ -10,7 +10,7 @@
           <%= image_tag todo.task.photo, style:"-webkit-filter: grayscale(100%); width: 100%"%>
         <% end %>
         <div class="card-body">
-          <h5 class="card-title"><%= link_to todo.task.title, todo_path(todo)%></h5>
+         <h5 class="card-title"><%= link_to todo.task.title, todo_path(todo)%></h5>
           <% if todo.completed == true %>
             <%= link_to "No Completado", update_todo_path(todo), method: :patch, class: 'btn btn-danger' %>
           <% else %>

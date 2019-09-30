@@ -1,22 +1,23 @@
 
 <h2>Tareas para este 18</h2>
 
+<% if user_signed_in?%>
+  <%= link_to "Ir a mis tareas",todos_path, class: 'btn btn-warning btn-lg btn-block'  %>
+<% else%>
+<% end %>
+<br>
 <% @tasks.each_slice(3) do |tasks| %>
   <div class="card-deck">
     <% tasks.each do |task| %>
-      <div class="card" style="width: 15rem;">
+    <div class="card" style="width: 15rem;">
       <%= image_tag task.photo, style: 'width: 100%' %>
-        <div class="card-body">
-          <h5 class="card-title">  <%= link_to task.title, task_path(id: task.id) %></h5>
-          <% if user_signed_in?%>
-            <%= link_to "Ir a mis tareas",todos_path, class: 'btn btn-warning'  %>
-          <% else%>
-          <% end %>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted"><%= time_ago_in_words task.created_at %></small>
-        </div>
+      <div class="card-body">
+        <h5 class="card-title">  <%= link_to task.title, task_path(id: task.id) %></h5>
       </div>
+      <div class="card-footer">
+        <small class="text-muted"><%= time_ago_in_words task.created_at %></small>
+      </div>
+    </div>
     <% end %>
   </div>
   <br>

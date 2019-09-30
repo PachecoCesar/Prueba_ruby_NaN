@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Bucket list del 18</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,8 +8,8 @@
     <li class="nav-item active">
       <a class="nav-link">
         <%if user_signed_in? %>
-         Tareas Completadas
-        <%= Todo.where(user_id: current_user.id, completed: true).count %> / <%= current_user.tasks.count %>
+          Tareas Completadas
+          <%= Todo.where(user_id: current_user.id, completed: true).count %> / <%= current_user.tasks.count %>
         <% end %>
       </a>
     </li>
@@ -20,18 +20,19 @@
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if user_signed_in?%>
-          <%=current_user.email%>
+            <%=current_user.email%>
           <% else %>
-          Ingreso
+            Ingreso
           <% end %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <% if user_signed_in? %>
-          <%= link_to "Mis Tareas", todos_path, class:"dropdown-item" %>
-          <%= link_to "Salir", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+            <%= link_to "Home", tasks_path, class:"dropdown-item" %>
+            <%= link_to "Mis Tareas", todos_path, class:"dropdown-item" %>
+            <%= link_to "Salir", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
           <% else %>
-          <%= link_to "Ingreso", new_user_session_path, class:"dropdown-item" %>
-          <%= link_to "Registro", new_user_registration_path, class:"dropdown-item" %>
+            <%= link_to "Ingreso", new_user_session_path, class:"dropdown-item" %>
+            <%= link_to "Registro", new_user_registration_path, class:"dropdown-item" %>
           <% end %>
         </div>
       </li>
