@@ -4,7 +4,7 @@
   <%= image_tag task.photo %>
   <%= link_to task.title, task_path(id: task.id) %>
   <% if user_signed_in?%>
-    <%= link_to "Listo",todos_path, class: 'btn btn-danger'  %>
+    <%= link_to "Ir a mis tareas",todos_path, class: 'btn btn-warning'  %>
   <% else%>
   <% end %>
 <% end %>
