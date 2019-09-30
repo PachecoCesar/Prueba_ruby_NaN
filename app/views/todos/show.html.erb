@@ -1,5 +1,21 @@
-<%= @task.title%>
-<%= image_tag @task.photo%>
-<% @todos.each do |todo|%>
-<p><%= todo.user.email %></p>
-<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Titulo</th>
+      <th scope="col">Foto</th>
+      <th scope="col">Tarea completada por</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @task.title%></td>
+      <td><%= image_tag @task.photo, style: 'width: 20%' %></td>
+      <% @todos.each do |todo|%>
+      <td><%= todo.user.email %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<%= link_to "Back",todos_path, class: 'btn btn-warning btn-lg btn-block' %>

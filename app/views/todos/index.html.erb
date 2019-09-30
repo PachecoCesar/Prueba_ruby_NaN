@@ -1,13 +1,27 @@
-<h1>Tasks holi</h1>
+<h2>Tareas Dieciocheras</h2>
 
-<% @todos.each do |todo| %>
-<% if todo.completed == true %>
-<%= image_tag todo.task.photo %>
-<%= link_to "No Completado", update_todo_path(todo), method: :patch, class: 'btn btn-danger' %>
-<% else %>
-<%= image_tag todo.task.photo,  style:"-webkit-filter: grayscale(100%)"%>
-<%= link_to "Listo", update_todo_path(todo), method: :patch, class: 'btn btn-primary' %>
-<% end %>
-<%= link_to todo.task.title, todo_path(todo)%>
-
+<% @todos.each_slice(3) do |todos| %>
+  <div class="card-deck">
+    <% todos.each do |todo| %>
+      <div class="card" style="width: 15rem;">
+        <% if todo.completed == true %>
+          <%= image_tag todo.task.photo%>
+          <% else %>
+          <%= image_tag todo.task.photo, style:"-webkit-filter: grayscale(100%)"%>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to todo.task.title, todo_path(todo)%></h5>
+          <% if todo.completed == true %>
+            <%= link_to "No Completado", update_todo_path(todo), method: :patch, class: 'btn btn-danger' %>
+          <% else %>
+            <%= link_to "Listo", update_todo_path(todo), method: :patch, class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"><%= time_ago_in_words todo.created_at %></small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <br>
 <% end %>

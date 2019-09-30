@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light reverse">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Bucket list del 18</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,6 +9,7 @@
     <li class="nav-item active">
       <a class="nav-link">
         <%if user_signed_in? %>
+         Tareas Completadas
         <%= Todo.where(user_id: current_user.id, completed: true).count %> / <%= current_user.tasks.count %>
         <% end %>
       </a>
