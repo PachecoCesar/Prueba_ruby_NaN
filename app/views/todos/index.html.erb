@@ -5,9 +5,9 @@
     <% todos.each do |todo| %>
       <div class="card" style="width: 15rem;">
         <% if todo.completed == true %>
-          <%= image_tag todo.task.photo%>
+          <%= image_tag todo.task.photo, style:"width: 100%"%>
           <% else %>
-          <%= image_tag todo.task.photo, style:"-webkit-filter: grayscale(100%)"%>
+          <%= image_tag todo.task.photo, style:"-webkit-filter: grayscale(100%); width: 100%"%>
         <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= link_to todo.task.title, todo_path(todo)%></h5>
